@@ -38,11 +38,12 @@ async function performOperations() {
     });
 
     let start = new Date();
-    // Assuming formattedPrompt.messages is the array you've shown in your output
+
+    // Explicitly cast to the expected type for passing to OpenAI
     const chatMessages: Array<ChatCompletionMessageParam> = formattedPrompt.messages.map(message => ({
       role: message.role, 
       content: message.content,
-    })) as Array<ChatCompletionMessageParam>; // Explicitly cast to the expected type
+    })) as Array<ChatCompletionMessageParam>; 
     
     const chatCompletion = await openai.chat.completions.create({
         messages: chatMessages, // [{ role: "system", content: "You are a helpful assistant." }], // 
