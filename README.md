@@ -42,6 +42,7 @@ Ensure to replace the placeholder values with your actual API keys and URLs.
 
 ```plaintext
 freeplay_api_base="freeplay_api_base"
+freeplay_project_id="freeplay_project_id"
 template_name = "YourTemplateName"
 environment = "YourEnvironment"
 prompt_variables = {"YourKey": "YourValue"} # Dictionary of input variables for your prompt template.
