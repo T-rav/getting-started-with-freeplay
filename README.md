@@ -31,7 +31,6 @@ Create a `.env` file in the same directory as your script, containing the follow
 ```plaintext
 FREEPLAY_API_KEY=your_freeplay_api_key_here
 FREEPLAY_PROJECT_ID=your_freeplay_project_id_here
-FREEPLAY_URL=your_freeplay_api_base_url_here
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
@@ -42,6 +41,7 @@ Ensure to replace the placeholder values with your actual API keys and URLs.
 1. Open `app.py` and update the following variables with your specifics:
 
 ```plaintext
+freeplay_api_base="freeplay_api_base"
 template_name = "YourTemplateName"
 environment = "YourEnvironment"
 prompt_variables = {"YourKey": "YourValue"} # Dictionary of input variables for your prompt template.

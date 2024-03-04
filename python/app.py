@@ -10,10 +10,10 @@ load_dotenv()
 # Load environment variables
 freeplay_api_key = os.getenv("FREEPLAY_API_KEY")
 freeplay_project_id = os.getenv("FREEPLAY_PROJECT_ID")
-freeplay_api_base = os.getenv("FREEPLAY_URL")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # Define runtime variables for the prompt
+freeplay_api_base = "https://8thlight.freeplay.ai/api"
 template_name = "Demo 2"
 environment = "staging"
 prompt_variables = {"message": "I eat penut butter for breakfeast every day"}
