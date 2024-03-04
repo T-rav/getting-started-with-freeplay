@@ -55,3 +55,39 @@ python app.py
 ```
 
 Upon running, you will observe graphs in the Freeplay session dashboard, which inform you about the cost and latency associated with running your prompt.
+
+## Getting Started with Node
+
+Navigate to the root directory of your project:
+
+```bash
+cd path/to/your/project/directory
+```
+
+Install the required dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file in the root directory of your project, containing the following environment variables:
+
+```plaintext
+FREEPLAY_API_KEY=your_freeplay_api_key_here
+FREEPLAY_PROJECT_ID=your_freeplay_project_id_here
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+Ensure to replace the placeholder values with your actual API keys.
+
+### Usage
+
+1. Update the script (`app.ts`) with your specifics, including the project ID, template name, environment, and prompt variables.
+
+2. Run the script with:
+
+```bash
+npm start
+```
+
+Upon running, you will observe graphs in the Freeplay session dashboard, which inform you about the cost and latency associated with running your prompt.

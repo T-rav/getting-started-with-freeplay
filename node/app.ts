@@ -56,7 +56,7 @@ async function performOperations() {
     });
 
     // create a session
-    let session = fpClient.sessions.create({});
+    let session = fpClient.sessions.create({}); 
 
     // record the LLM interaction with Freeplay
     await fpClient.recordings.create({
