@@ -26,7 +26,6 @@ const fpClient = new Freeplay({
 
 const openai = new OpenAI({"apiKey":openaiApiKey});
 
-// Function to perform operations
 async function performOperations() {
   try {
     // Assuming getFormatted is an async method; adjust according to the actual API
@@ -50,16 +49,14 @@ async function performOperations() {
         model: formattedPrompt.promptInfo.model,
     });
     let end = new Date();
-    // Assuming allMessages method exists; adjust based on actual usage
+    
     let messages = formattedPrompt.allMessages({
         role: chatCompletion.choices[0].message.role,
         content: chatCompletion.choices[0].message.content as string,
     });
 
-    // create a session
-    let session = fpClient.sessions.create({}); 
-
     // record the LLM interaction with Freeplay
+    let session = fpClient.sessions.create({}); 
     await fpClient.recordings.create({
         allMessages: messages,
         inputs: promptVariables,
