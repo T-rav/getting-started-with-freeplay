@@ -28,7 +28,7 @@ const openai = new OpenAI({"apiKey":openaiApiKey});
 
 async function performOperations() {
   try {
-    // Assuming getFormatted is an async method; adjust according to the actual API
+    // Fetch the prompt and format it with input variables
     const formattedPrompt = await fpClient.prompts.getFormatted({
       projectId: freeplayProjectId,
       templateName,
@@ -50,13 +50,14 @@ async function performOperations() {
     });
     let end = new Date();
     
+    // record the LLM interaction with Freeplay
     let messages = formattedPrompt.allMessages({
-        role: chatCompletion.choices[0].message.role,
-        content: chatCompletion.choices[0].message.content as string,
+      role: chatCompletion.choices[0].message.role,
+      content: chatCompletion.choices[0].message.content as string,
     });
 
-    // record the LLM interaction with Freeplay
     let session = fpClient.sessions.create({}); 
+
     await fpClient.recordings.create({
         allMessages: messages,
         inputs: promptVariables,
@@ -64,11 +65,12 @@ async function performOperations() {
         promptInfo: formattedPrompt.promptInfo,
         callInfo: getCallInfo(formattedPrompt.promptInfo, start, end),
         responseInfo: {
-            isComplete: "stop" === chatCompletion.choices[0].finish_reason
+            isComplete: chatCompletion.choices[0].finish_reason === "stop"
         }
     });
 
     console.log("LLM Response: ",chatCompletion.choices[0].message);
+    
   } catch (e) {
     console.error("An error occurred:", e);
   }
