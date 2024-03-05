@@ -46,7 +46,7 @@ async function performOperations() {
     })) as Array<ChatCompletionMessageParam>; 
     
     const chatCompletion = await openai.chat.completions.create({
-        messages: chatMessages, // [{ role: "system", content: "You are a helpful assistant." }], // 
+        messages: chatMessages,
         model: formattedPrompt.promptInfo.model,
     });
     let end = new Date();
