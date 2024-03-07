@@ -69,7 +69,7 @@ async function performOperations() {
         }
     });
 
-    console.log("LLM Response: ",chatCompletion.choices[0].message);
+    console.log("LLM Response: ",chatCompletion.choices[0].message.content);
     
   } catch (e) {
     console.error("An error occurred:", e);
